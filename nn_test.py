@@ -33,8 +33,8 @@ X_train, X_test, Y_train, Y_test = train_test_split(X_scaler, Y, test_size=0.02,
 # Pesos definidos aleatóriamente [0, 0.05]
 # Funções de ativação rectifier, rectifier, sigmoid
 model = Sequential()
-model.add(Dense(12, input_dim=8, activation='relu'))
-model.add(Dense(5, activation='relu'))
+model.add(Dense(12, input_dim=8, activation='tanh'))
+model.add(Dense(5, activation='tanh'))
 model.add(Dense(1, activation='sigmoid'))
 
 #compilando o modelo 
@@ -48,7 +48,6 @@ scores = model.evaluate(X_train, Y_train)
 print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
 
 #Predizendo
-
 predictions = model.predict(X_test)
 
 rounded = [round(x[0]) for x in predictions]
