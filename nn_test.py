@@ -22,7 +22,7 @@ X_scaler = scaler.fit_transform(X)
 
 #Separando dados pra treino e teste
 
-X_train, X_test, Y_train, Y_test = train_test_split(X_scaler, Y, test_size=0.2, random_state=10)
+X_train, X_test, Y_train, Y_test = train_test_split(X_scaler, Y, test_size=0.02, random_state=10)
 
 
 #Definindo o modelo
@@ -47,9 +47,9 @@ model.fit(X_train, Y_train, epochs=150, batch_size=10)
 scores = model.evaluate(X_train, Y_train)
 print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
 
-#Predict
+#Predizendo
 
-#predictions = model.predict(X)
+predictions = model.predict(X_test)
 
-#rounded = [round(x[0]) for x in predictions]
-#print(rounded)
+rounded = [round(x[0]) for x in predictions]
+print(rounded)
