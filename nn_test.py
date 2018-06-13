@@ -48,7 +48,7 @@ scores = model.evaluate(X_train, Y_train)
 print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
 
 #Predizendo
-predictions = model.predict(X_test)
+    predictions = model.predict(X_test)
 
 rounded = [round(x[0]) for x in predictions]
 print(rounded)
